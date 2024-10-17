@@ -12,18 +12,24 @@ file_to_output = os.path.join("analysis", "budget_analysis.txt")  # Output file 
 # Define variables to track the financial data
 total_months = 0
 total_net = 0
+
 # Add more variables to track other necessary financial data
+max_profit = 0
+max_profit_month = 0
+max_loss = 0
+max_loss_month = 0
+last_net = 0
+last_month = 0
 
 # Open and read the csv
-with open(file_to_load) as financial_data:
-    reader = csv.reader(financial_data)
+with open(file_to_load, encoding='UTF-8') as financial_data:
+    reader = csv.reader(financial_data, delimiter=",")
 
     # Skip the header row
     header = next(reader)
 
     # Extract first row to avoid appending to net_change_list
-
-
+    
     # Track the total and net change
 
 
@@ -31,17 +37,22 @@ with open(file_to_load) as financial_data:
     for row in reader:
 
         # Track the total
-
+        total_months += 1
 
         # Track the net change
-
+        total_net += row[1]
 
         # Calculate the greatest increase in profits (month and amount)
-
+        if row[1] >= max_profit:
+            max_profit = row[1]
+            max_profit_month = row[0]
 
         # Calculate the greatest decrease in losses (month and amount)
-
-
+        if row[1] <= max_loss:
+            max_loss = row[1]
+            max_loss_month = row[0]
+        last_net = row[1]
+        last_month = row[0]
 
 # Calculate the average net change across the months
 
