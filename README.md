@@ -11,4 +11,4 @@ EdX class code examples were used for almost the entire project. However, format
 Also, to make the terminal easier to read, "/n" was found online and used in PyPoll (https://discuss.python.org/t/use-newlines-n-with-the-command-python-c/20099)
 Lastly, class tutor services were used to simplify code/remove redundancies.
 ## License
-See License file.
+GPL-3.0 License. 
